@@ -1,9 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
     tools:context=".AppointmentActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/photoProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/profile_placeholder" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr. Galih Pratama"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="1dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cardiology" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="5dp"
+            android:text="Apply for"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:text="New Appointment"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edEmailInput"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:paddingStart="15sp"
+        android:gravity="start"
+        android:paddingTop="20sp"
+        android:layout_marginBottom="15dp"
+        android:hint="Enter Consultation"
+        android:textColorHint="@color/gray"
+        android:textSize="14sp"
+        android:layout_marginTop="25dp"
+        android:inputType="text"
+        android:background="@drawable/bg_btn_rounded"/>
+
+    <EditText
+        android:id="@+id/edDateInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="12sp"
+        android:layout_marginBottom="15dp"
+        android:hint="Choose Date"
+        android:textColorHint="@color/gray"
+        android:textSize="14sp"
+        android:background="@drawable/bg_btn_rounded"/>
+
+    <EditText
+        android:id="@+id/edTimeInput"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="12sp"
+        android:layout_marginBottom="15dp"
+        android:hint="Time"
+        android:textColorHint="@color/gray"
+        android:textSize="14sp"
+        android:background="@drawable/bg_btn_rounded"/>
+
+    <Button
+        android:id="@+id/btnBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_fill_rounded"
+        android:hint="Continue"
+        android:textColorHint="@color/white"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>

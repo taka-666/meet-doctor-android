@@ -37,7 +37,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
@@ -46,6 +46,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
     // dependencies Custom
-    implementation("com.amitshekhar.android:android-networking:1.0.2")
+    implementation ("com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4")
     implementation ("io.coil-kt:coil:1.4.0")
+    implementation ("com.github.User:Repo:Tag")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.squareup.picasso:picasso:2.71828")
 }
