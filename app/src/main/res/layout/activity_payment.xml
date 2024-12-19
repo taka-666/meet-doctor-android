@@ -39,7 +39,6 @@
                 android:text="Dr. Galih Pratama"
                 android:textSize="16sp"
                 android:textColor="@color/black"
-                style="@style/CustomTextViewStyle"
                 android:textStyle="bold"/>
 
             <TextView
@@ -72,11 +71,10 @@
                 android:textSize="20sp"
                 android:layout_marginBottom="15dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                style="@style/CustomTextViewStyle" />
+                android:textStyle="bold" />
 
             <RelativeLayout
-                android:id="@+id/consul"
+                android:id="@+id/txtconsultasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
@@ -159,7 +157,6 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
                 android:textColor="@color/black"
-                style="@style/CustomTextViewStyle"
                 android:textStyle="bold"/>
 
             <RelativeLayout
@@ -257,59 +254,59 @@
                     android:textStyle="bold"/>
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:text="Choose Your"
-                style="@style/CustomTextViewStyle"
-                android:textStyle="bold"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="24sp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:text="Choose Your"-->
+<!--                -->
+<!--                android:textStyle="bold"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:layout_marginBottom="15dp"
-                android:textColor="@color/black"
-                android:text="Payment Method"
-                style="@style/CustomTextViewStyle"
-                android:textStyle="bold"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="24sp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:text="Payment Method"-->
+<!--                style="@style/CustomTextViewStyle"-->
+<!--                android:textStyle="bold"/>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <ImageView
-                    android:id="@+id/img1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_1"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/img1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/img_1"/>-->
 
-                <ImageView
-                    android:id="@+id/img2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/img_2"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/img2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:src="@drawable/img_2"/>-->
 
-                <ImageView
-                    android:id="@+id/img3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/img1"
-                    android:src="@drawable/img_3"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/img3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/img1"-->
+<!--                    android:src="@drawable/img_3"/>-->
 
-                <ImageView
-                    android:id="@+id/img4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_4"
-                    android:layout_below="@+id/img2"
-                    android:layout_alignParentRight="true"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/img4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/img_4"-->
+<!--                    android:layout_below="@+id/img2"-->
+<!--                    android:layout_alignParentRight="true"/>-->
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
             <Button
                 android:id="@+id/btnPaynow"

@@ -58,6 +58,7 @@
             android:textSize="25dp"
             android:textColor="@color/black"
             android:layout_marginBottom="5dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Apply for"/>
 
         <TextView
@@ -66,6 +67,7 @@
             android:textStyle="bold"
             android:textSize="25dp"
             android:textColor="@color/black"
+            android:fontFamily="@font/poppins_bold"
             android:text="New Appointment"/>
     </LinearLayout>
 
