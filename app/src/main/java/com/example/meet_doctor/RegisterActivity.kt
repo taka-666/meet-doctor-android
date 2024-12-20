@@ -7,6 +7,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.meet_doctor.Interface.ApiService
+import com.example.meet_doctor.Model.LoginRequest
+import com.example.meet_doctor.Model.LoginResponse
+import com.example.meet_doctor.Model.RegisterRequest
+import com.example.meet_doctor.Model.RegisterResponse
+import com.example.meet_doctor.Utilitas.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var edNameInput: EditText
@@ -26,8 +35,8 @@ class RegisterActivity : AppCompatActivity() {
         edEmailInput = findViewById(R.id.edEmailInput)
         edPasswordInput = findViewById(R.id.edPasswordInput)
         edConfirmPasswordInput = findViewById(R.id.edConfirmPassword)
-        btnSignup = findViewById(R.id.btnSignup)  // Inisialisasi btnSignup
-        btnSignin = findViewById(R.id.btnSignin)  // Inisialisasi btnSignin
+        btnSignup = findViewById(R.id.btnSignup)
+        btnSignin = findViewById(R.id.btnSignin)
 
         // Aksi untuk tombol Sign Up
         btnSignup.setOnClickListener {
@@ -44,9 +53,7 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             } else {
                 // Intent ke LoginActivity setelah proses registrasi
-                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+                registerUser(name, email, password, confirmPassword)
             }
         }
 
@@ -56,5 +63,30 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+    private fun registerUser(name: String, email: String, password: String, confirmPassword: String) {
+        val apiService = ApiClient.retrofit.create(ApiService::class.java)
+        val registerRequest = RegisterRequest(name, email, password, confirmPassword)
+
+        apiService.register(registerRequest).enqueue(object : Callback<RegisterResponse> {
+            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                if (response.isSuccessful) {
+                    val registerResponse = response.body()
+                    if (registerResponse?.success == true) {
+                        Toast.makeText(this@RegisterActivity, "Registration successful", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this@RegisterActivity, "API Response: ${registerResponse?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@RegisterActivity, "HTTP Error: ${response.code()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

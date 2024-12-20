@@ -80,6 +80,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_btn_rounded"
         android:text="New Account"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 
 </LinearLayout>
