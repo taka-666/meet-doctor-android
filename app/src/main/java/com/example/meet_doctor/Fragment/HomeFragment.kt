@@ -1,5 +1,6 @@
 package com.example.meet_doctor.Fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,15 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
+import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.meet_doctor.R
+import com.example.meet_doctor.adapter.adapterDoctor
+import com.example.meet_doctor.dataClass.Doctor
 import org.json.JSONObject
 
 
 class HomeFragment : Fragment() {
+    private lateinit var recyclerDoctor: RecyclerView
+    private lateinit var doctorList: ArrayList<Doctor>
+    private lateinit var adapterDoctor: adapterDoctor
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +35,7 @@ class HomeFragment : Fragment() {
 
         recyclerDoctor = view.findViewById(R.id.recyclerDoctor)
 
-        adapterDoctor = AdapterDoctor(requireContext(), doctorList)
+        adapterDoctor = adapterDoctor(requireContext(), doctorList)
 
         recyclerDoctor.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyclerDoctor.adapter = adapterDoctor
@@ -37,7 +46,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun fetchDoctors() {
-        AndroidNetworking.get("http://172.20.10.6:8000/api/")
+        AndroidNetworking.get("http://127.0.0.1:8000/api/")
             .setPriority(Priority.LOW)
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
@@ -50,9 +59,7 @@ class HomeFragment : Fragment() {
                         val id = doctorObject.getInt("id")
                         val name = doctorObject.getString("name")
                         val image = doctorObject.getString("image")
-                        val specialistObject = doctorObject.getJSONObject("specialist")
-                        val specialistName = specialistObject.getString("name")
-                        val specialist = Specialist(specialistName)
+                        val specialist = doctorObject.getString("specialist")
                         val doctor = Doctor(id, name, image, specialist)
                         doctorsList.add(doctor)
                     }

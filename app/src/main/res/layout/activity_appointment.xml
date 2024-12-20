@@ -84,7 +84,7 @@
         android:textSize="14sp"
         android:layout_marginTop="25dp"
         android:inputType="text"
-        android:background="@drawable/bg_btn_rounded"/>
+        android:background="@drawable/bg_rounded_fill"/>
 
     <EditText
         android:id="@+id/edDateInput"

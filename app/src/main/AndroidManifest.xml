@@ -30,7 +30,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".FlashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
