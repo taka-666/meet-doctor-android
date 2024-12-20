@@ -1,4 +1,4 @@
-package com.example.meet_doctor.dataClass
+package com.example.meet_doctor.Model
 
 data class Doctor(
     val id: Int,

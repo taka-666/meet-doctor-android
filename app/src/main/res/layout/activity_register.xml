@@ -63,17 +63,6 @@
         android:background="@drawable/bg_btn_rounded"/>
 
     <EditText
-        android:id="@+id/edConfirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingStart="12sp"
-        android:layout_marginBottom="15dp"
-        android:hint="Confirm Password"
-        android:textColorHint="@color/gray"
-        android:textSize="14sp"
-        android:background="@drawable/bg_btn_rounded"/>
-
-    <EditText
         android:id="@+id/edPasswordInput"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -82,11 +71,22 @@
         android:hint="Password"
         android:textColorHint="@color/gray"
         android:textSize="14sp"
+        android:background="@drawable/bg_btn_rounded"/>
+
+    <EditText
+        android:id="@+id/edConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="12sp"
+        android:layout_marginBottom="15dp"
+        android:hint="Confirmation Password"
+        android:textColorHint="@color/gray"
+        android:textSize="14sp"
         android:inputType="textPassword"
         android:background="@drawable/bg_btn_rounded"/>
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_btn_fill_rounded"
@@ -96,11 +96,11 @@
         android:layout_marginTop="15dp"/>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSignin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_btn_rounded"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         android:hint="Sign In"/>
 
 </LinearLayout>

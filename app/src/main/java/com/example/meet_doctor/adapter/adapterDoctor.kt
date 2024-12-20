@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meet_doctor.AppointmentActivity
 import com.example.meet_doctor.R
-import com.example.meet_doctor.dataClass.Doctor
+import com.example.meet_doctor.Model.Doctor
 import com.squareup.picasso.Picasso
 
 class adapterDoctor(val context: Context, val doctor: ArrayList<Doctor>) : RecyclerView.Adapter<adapterDoctor.MyViewHolder>() {

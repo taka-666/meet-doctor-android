@@ -9,13 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.meet_doctor.R
 import com.example.meet_doctor.adapter.adapterDoctor
-import com.example.meet_doctor.dataClass.Doctor
+import com.example.meet_doctor.Model.Doctor
 import org.json.JSONObject
 
 
@@ -40,38 +36,38 @@ class HomeFragment : Fragment() {
         recyclerDoctor.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyclerDoctor.adapter = adapterDoctor
 
-        fetchDoctors()
+//        fetchDoctors()
 
         return view
     }
 
-    private fun fetchDoctors() {
-        AndroidNetworking.get("http://127.0.0.1:8000/api/")
-            .setPriority(Priority.LOW)
-            .build()
-            .getAsJSONObject(object : JSONObjectRequestListener {
-                override fun onResponse(response: JSONObject) {
-                    val doctorsArray = response.getJSONArray("doctors")
-                    val doctorsList = ArrayList<Doctor>()
-
-                    for (i in 0 until doctorsArray.length()) {
-                        val doctorObject = doctorsArray.getJSONObject(i)
-                        val id = doctorObject.getInt("id")
-                        val name = doctorObject.getString("name")
-                        val image = doctorObject.getString("image")
-                        val specialist = doctorObject.getString("specialist")
-                        val doctor = Doctor(id, name, image, specialist)
-                        doctorsList.add(doctor)
-                    }
-
-                    doctorList.clear()
-                    doctorList.addAll(doctorsList)
-                    adapterDoctor.notifyDataSetChanged()
-                }
-
-                override fun onError(error: ANError) {
-                    Log.e("Error", error.toString())
-                }
-            })
-    }
+//    private fun fetchDoctors() {
+//        AndroidNetworking.get("http://127.0.0.1:8000/api/")
+//            .setPriority(Priority.LOW)
+//            .build()
+//            .getAsJSONObject(object : JSONObjectRequestListener {
+//                override fun onResponse(response: JSONObject) {
+//                    val doctorsArray = response.getJSONArray("doctors")
+//                    val doctorsList = ArrayList<Doctor>()
+//
+//                    for (i in 0 until doctorsArray.length()) {
+//                        val doctorObject = doctorsArray.getJSONObject(i)
+//                        val id = doctorObject.getInt("id")
+//                        val name = doctorObject.getString("name")
+//                        val image = doctorObject.getString("image")
+//                        val specialist = doctorObject.getString("specialist")
+//                        val doctor = Doctor(id, name, image, specialist)
+//                        doctorsList.add(doctor)
+//                    }
+//
+//                    doctorList.clear()
+//                    doctorList.addAll(doctorsList)
+//                    adapterDoctor.notifyDataSetChanged()
+//                }
+//
+//                override fun onError(error: ANError) {
+//                    Log.e("Error", error.toString())
+//                }
+//            })
+//    }
 }

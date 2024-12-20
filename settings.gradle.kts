@@ -10,11 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google() // Repositori utama Android
         mavenCentral() // Repositori Maven untuk pustaka Java/Kotlin
-        maven {
-            setUrl("https://jitpack.io")
-            content { includeGroup ("com.github.taka-666") }// Untuk pustaka yang di-host di JitPack
+
     }
-}
 }
 rootProject.name = "Meet-Doctor"
 include(":app")

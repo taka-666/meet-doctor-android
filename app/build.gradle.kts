@@ -48,12 +48,13 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.10.1")
 
     // dependencies Custom
-    implementation ("com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4")
+//    implementation ("com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4")
     implementation ("io.coil-kt:coil:1.4.0")
-    implementation ("com.github.User:Repo:Tag")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation ("com.squareup.picasso:picasso:2.8")
-    implementation ("com.github.taka-666:meet-doctor-android:1.0.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0") // Untuk parsing JSON ke objek
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
 }
