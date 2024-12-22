@@ -23,13 +23,14 @@
         android:gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photoProfile"
+            android:id="@+id/ivDoctorImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/profile_placeholder" />
 
         <TextView
+            android:id="@+id/tvDoctorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dr. Galih Pratama"
@@ -39,6 +40,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/tvDoctorSpecialist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cardiology" />
@@ -72,7 +74,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edEmailInput"
+        android:id="@+id/edConsultation"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:paddingStart="15sp"

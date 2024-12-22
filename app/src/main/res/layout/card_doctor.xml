@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -27,7 +28,7 @@
                 app:cardBackgroundColor="@color/white">
 
                 <ImageView
-                    android:id="@+id/photoDoctorImageView"
+                    android:id="@+id/ivDoctorImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/doctor_1"
@@ -37,7 +38,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txtNameDoctor"
+            android:id="@+id/tvDoctorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dr. Galih Pratama"
@@ -47,7 +48,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/txtNameSpecialist"
+            android:id="@+id/tvDoctorSpecialist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Neurologist"
@@ -55,5 +56,5 @@
             android:textColor="@color/black" />
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
 

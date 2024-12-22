@@ -1,6 +1,9 @@
 package com.example.meet_doctor.Interface
 
+import com.example.meet_doctor.Model.AppointmentRequest
+import com.example.meet_doctor.Model.AppointmentResponse
 import com.example.meet_doctor.Model.Doctor
+import com.example.meet_doctor.Model.DoctorResponse
 import com.example.meet_doctor.Model.LoginRequest
 import com.example.meet_doctor.Model.LoginResponse
 import com.example.meet_doctor.Model.User
@@ -11,10 +14,13 @@ import retrofit2.http.POST
 
 import com.example.meet_doctor.Model.RegisterRequest
 import com.example.meet_doctor.Model.RegisterResponse
+import com.example.meet_doctor.Model.TransactionResponse
+import com.example.meet_doctor.Model.bookingResponse
 import retrofit2.Call
+import retrofit2.http.Path
 
 
-interface ApiService {
+interface  ApiService {
     // Endpoint register
     @POST("register")
     fun register(@Body request: RegisterRequest): Call<RegisterResponse>
@@ -22,6 +28,24 @@ interface ApiService {
     // Endpoint login
     @POST("login")
     fun login(@Body request: LoginRequest): Call<LoginResponse>
+
+    @GET("home")
+    fun getDoctor(): Call<DoctorResponse>
+
+    @POST("appointment")
+    fun createAppointment(
+        @Body appointmentRequest: AppointmentRequest
+    ): Call<AppointmentResponse>
+
+
+    @GET("appointment/doctor/{id}")
+    fun getAppointmentDetails(@Path("id") id: Int): Call<AppointmentResponse>
+
+    @GET("appointment")
+    fun getAppointments(): Call<bookingResponse>
+
+    @GET("transaction")
+    fun getTransactions(): Call<TransactionResponse>
 }
 
 

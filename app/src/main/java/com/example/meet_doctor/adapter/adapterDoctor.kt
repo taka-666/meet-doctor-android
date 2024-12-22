@@ -1,50 +1,50 @@
 package com.example.meet_doctor.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.meet_doctor.AppointmentActivity
-import com.example.meet_doctor.R
+import com.bumptech.glide.Glide
 import com.example.meet_doctor.Model.Doctor
-import com.squareup.picasso.Picasso
+import com.example.meet_doctor.R
 
-class adapterDoctor(val context: Context, val doctor: ArrayList<Doctor>) : RecyclerView.Adapter<adapterDoctor.MyViewHolder>() {
+class adapterDoctor(
+    private val context: Context,
+    private val doctorList: List<Doctor>,
+    private val onDoctorClick: (Doctor) -> Unit
+) : RecyclerView.Adapter<adapterDoctor.DoctorViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_doctor, parent, false)
-        return MyViewHolder(view)
+    inner class DoctorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val doctorName: TextView = view.findViewById(R.id.tvDoctorName)
+        val doctorImage: ImageView = view.findViewById(R.id.ivDoctorImage)
+        val doctorSpecialists: TextView = view.findViewById(R.id.tvDoctorSpecialist)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val doctor = doctor[position]
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.card_doctor, parent, false)
+        return DoctorViewHolder(view)
+    }
 
+    override fun onBindViewHolder(holder: DoctorViewHolder, position: Int) {
+        val doctor = doctorList[position]
+
+        // Set data ke View
         holder.doctorName.text = doctor.name
-        holder.doctorSpecialist.text = doctor.specialist
-
-        // load image
-        Picasso.get()
+        holder.doctorSpecialists.text = doctor.specialists
+        Glide.with(context)
             .load(doctor.image)
+            .placeholder(R.drawable.doctor_1)
             .into(holder.doctorImage)
 
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, AppointmentActivity::class.java)
-            ContextCompat.startActivity(context, intent, null)
+        // Tambahkan listener untuk klik pada ImageView
+        holder.doctorImage.setOnClickListener {
+            onDoctorClick(doctor) // Panggil listener
         }
     }
 
-    override fun getItemCount(): Int {
-        return doctor.size
-    }
-
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val doctorName: TextView = itemView.findViewById(R.id.txtNameDoctor)
-        val doctorSpecialist: TextView = itemView.findViewById(R.id.txtNameSpecialist)
-        val doctorImage: ImageView = itemView.findViewById(R.id.photoDoctorImageView)
-    }
+    override fun getItemCount(): Int = doctorList.size
 }
+

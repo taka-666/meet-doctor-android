@@ -15,6 +15,7 @@ import retrofit2.Response
 import android.widget.Button
 import android.widget.EditText
 import com.example.meet_doctor.Fragment.HomeFragment
+import com.example.meet_doctor.Utilitas.TokenManager
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var edEmailInput: EditText
@@ -63,21 +64,14 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful && response.body() != null) {
                     val loginResponse = response.body()
                     if (loginResponse?.success == true) {
+                        // Simpan token setelah login sukses
+                        TokenManager.saveToken(this@LoginActivity, loginResponse.token)
+
                         Toast.makeText(this@LoginActivity, "Welcome, ${loginResponse.user?.name}", Toast.LENGTH_SHORT).show()
-                        // Simpan token untuk kebutuhan selanjutnya
-                        val token = loginResponse.token
-                        // Navigasi ke halaman lain
 
-                        // Intent untuk berpindah ke HomeActivity
+                        // Navigasi ke MainActivity
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
-
-                        // Jika ingin mengirimkan token atau data lain, bisa ditambahkan
-                        intent.putExtra("TOKEN", token)
-
-                        // Memulai activity tujuan
                         startActivity(intent)
-
-                        // Menutup LoginActivity setelah berpindah halaman
                         finish()
                     } else {
                         Toast.makeText(this@LoginActivity, loginResponse?.message ?: "Login failed", Toast.LENGTH_SHORT).show()
@@ -92,5 +86,6 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
 }
 
