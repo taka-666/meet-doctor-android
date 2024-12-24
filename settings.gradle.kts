@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google() // Repositori utama Android
         mavenCentral() // Repositori Maven untuk pustaka Java/Kotlin
+//        maven { setUrl("https://jitpack.io") }
 
     }
 }

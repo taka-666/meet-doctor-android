@@ -2,6 +2,7 @@ package com.example.meet_doctor
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,6 +32,9 @@ class AppointmentActivity : AppCompatActivity() {
     private lateinit var edDateInput: EditText
 
     private var doctorId: Int = -1
+    private var doctorName: String? = null
+    private var doctorSpecialist: String? = null
+    private var doctorImage: String? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +66,10 @@ class AppointmentActivity : AppCompatActivity() {
         // Tampilkan data dokter
         tvDoctorName.text = doctorName
         tvDoctorSpecialist.text = doctorSpecialist
-        Glide.with(this).load(doctorImage).placeholder(R.drawable.placeholder_image).into(ivDoctorImage)
+        Glide.with(this)
+            .load(doctorImage)
+            .placeholder(R.drawable.placeholder_image)
+            .into(ivDoctorImage)
 
         // Date Picker
         edDateInput.setOnClickListener {
@@ -93,6 +100,8 @@ class AppointmentActivity : AppCompatActivity() {
             if (consultationTopic.isEmpty() || date.isEmpty() || time.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             } else {
+                // Di AppointmentActivity
+
                 createAppointment(consultationTopic, date, time)
             }
         }
@@ -121,6 +130,22 @@ class AppointmentActivity : AppCompatActivity() {
                     val appointmentResponse = response.body()
                     if (appointmentResponse?.success == true) {
                         Toast.makeText(this@AppointmentActivity, "Appointment booked successfully", Toast.LENGTH_SHORT).show()
+
+                        // Ambil appointment_id dari response
+                        val appointmentId = appointmentResponse.data?.appointment?.id
+
+                        // Simpan appointment_id ke SharedPreferences
+                        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putInt("APPOINTMENT_ID", appointmentId ?: -1) // Gunakan default -1 jika null
+                        editor.apply()
+
+                        // Navigasi ke halaman PaymentActivity
+                        val intent = Intent(this@AppointmentActivity, PaymentActivity::class.java)
+                        intent.putExtra("DOCTOR_NAME", doctorName)  // Misalnya, data nama dokter
+                        intent.putExtra("DOCTOR_SPECIALIST", doctorSpecialist)  // Data specialist dokter
+                        intent.putExtra("DOCTOR_PHOTO", doctorImage)  // Data foto dokter (URL atau path)
+                        startActivity(intent)
                         finish()
                     } else {
                         val errorBody = response.errorBody()?.string()
@@ -136,5 +161,6 @@ class AppointmentActivity : AppCompatActivity() {
                 Toast.makeText(this@AppointmentActivity, "Network Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+
     }
 }

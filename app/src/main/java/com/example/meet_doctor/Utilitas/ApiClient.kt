@@ -8,7 +8,7 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 
 object ApiClient {
-    private const val BASE_URL = "https://c1e1-2001-448a-4042-7f86-cc09-34ce-b0dd-7a08.ngrok-free.app/api/"
+    private const val BASE_URL = "https://b319-2001-448a-4042-7f86-6c2e-7c93-df87-48f7.ngrok-free.app/api/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

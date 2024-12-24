@@ -34,6 +34,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvDoctorNameCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dr. Galih Pratama"
@@ -42,6 +43,7 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/tvDoctorSpecialistCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cardiology"
@@ -85,6 +87,7 @@
                     android:text="Kebutuhan Konsultasi"/>
 
                 <TextView
+                    android:id="@+id/tvConsultation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -104,6 +107,7 @@
                     android:text="Dijadwalkan Pada"/>
 
                 <TextView
+                    android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -123,6 +127,7 @@
                     android:text="Waktu"/>
 
                 <TextView
+                    android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -141,6 +146,7 @@
                     android:text="Status"/>
 
                 <TextView
+                    android:id="@+id/tvStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -171,6 +177,7 @@
                     android:text="Biaya Konsultasi"/>
 
                 <TextView
+                    android:id="@+id/tvBiayaKonsultasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -190,6 +197,7 @@
                     android:text="Fee Doctor"/>
 
                 <TextView
+                    android:id="@+id/tvFeeDoctor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -209,6 +217,7 @@
                     android:text="Fee Hospital"/>
 
                 <TextView
+                    android:id="@+id/tvFeeHospital"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -228,6 +237,7 @@
                     android:text="VAT 20%"/>
 
                 <TextView
+                    android:id="@+id/tvVat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -246,6 +256,7 @@
                     android:text="Grand Total"/>
 
                 <TextView
+                    android:id="@+id/tvGranTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -254,59 +265,6 @@
                     android:textStyle="bold"/>
             </RelativeLayout>
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="24sp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:text="Choose Your"-->
-<!--                -->
-<!--                android:textStyle="bold"/>-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="24sp"-->
-<!--                android:layout_marginBottom="15dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:text="Payment Method"-->
-<!--                style="@style/CustomTextViewStyle"-->
-<!--                android:textStyle="bold"/>-->
-
-<!--            <RelativeLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/img1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/img_1"/>-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/img2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentRight="true"-->
-<!--                    android:src="@drawable/img_2"/>-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/img3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@+id/img1"-->
-<!--                    android:src="@drawable/img_3"/>-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/img4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@drawable/img_4"-->
-<!--                    android:layout_below="@+id/img2"-->
-<!--                    android:layout_alignParentRight="true"/>-->
-
-<!--            </RelativeLayout>-->
 
             <Button
                 android:id="@+id/btnPaynow"

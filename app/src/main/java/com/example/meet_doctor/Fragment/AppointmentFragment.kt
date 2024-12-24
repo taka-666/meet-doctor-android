@@ -46,50 +46,50 @@ class AppointmentFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerAppointment)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        fetchAppointments()
-        fetchTransactions()
+//        fetchAppointments()
+//        fetchTransactions()
 
         return view
     }
 
-    private fun fetchAppointments() {
-        apiService.getAppointments().enqueue(object : Callback<bookingResponse> {
-            override fun onResponse(call: Call<bookingResponse>, response: Response<bookingResponse>) {
-                if (response.isSuccessful) {
-                    appointments = response.body()?.data ?: listOf()
-                    updateAdapter()
-                } else {
-                    Log.e("API Error", "Failed to fetch appointments: ${response.errorBody()?.string()}")
-                }
-            }
-
-            override fun onFailure(call: Call<bookingResponse>, t: Throwable) {
-                Log.e("API Error", "Error fetching appointments: ${t.message}")
-            }
-        })
-    }
-
-    private fun fetchTransactions() {
-        apiService.getTransactions().enqueue(object : Callback<TransactionResponse> {
-            override fun onResponse(call: Call<TransactionResponse>, response: Response<TransactionResponse>) {
-                if (response.isSuccessful) {
-                    transactions = response.body()?.data ?: listOf()
-                    updateAdapter()
-                } else {
-                    Log.e("API Error", "Failed to fetch transactions: ${response.errorBody()?.string()}")
-                }
-            }
-
-            override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
-                Log.e("API Error", "Error fetching transactions: ${t.message}")
-            }
-        })
-    }
-
-    private fun updateAdapter() {
-        if (::recyclerView.isInitialized) {
-            adapter = adapterAppointment(appointments, transactions)
-            recyclerView.adapter = adapter
-        }
-    }
+//    private fun fetchAppointments() {
+//        apiService.getAppointments().enqueue(object : Callback<bookingResponse> {
+//            override fun onResponse(call: Call<bookingResponse>, response: Response<bookingResponse>) {
+//                if (response.isSuccessful) {
+//                    appointments = response.body()?.data ?: listOf()
+//                    updateAdapter()
+//                } else {
+//                    Log.e("API Error", "Failed to fetch appointments: ${response.errorBody()?.string()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<bookingResponse>, t: Throwable) {
+//                Log.e("API Error", "Error fetching appointments: ${t.message}")
+//            }
+//        })
+//    }
+//
+//    private fun fetchTransactions() {
+//        apiService.getTransactions().enqueue(object : Callback<TransactionResponse> {
+//            override fun onResponse(call: Call<TransactionResponse>, response: Response<TransactionResponse>) {
+//                if (response.isSuccessful) {
+//                    transactions = response.body()?.data ?: listOf()
+//                    updateAdapter()
+//                } else {
+//                    Log.e("API Error", "Failed to fetch transactions: ${response.errorBody()?.string()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
+//                Log.e("API Error", "Error fetching transactions: ${t.message}")
+//            }
+//        })
+//    }
+//
+//    private fun updateAdapter() {
+//        if (::recyclerView.isInitialized) {
+//            adapter = adapterAppointment(appointments, transactions)
+//            recyclerView.adapter = adapter
+//        }
+//    }
 }
