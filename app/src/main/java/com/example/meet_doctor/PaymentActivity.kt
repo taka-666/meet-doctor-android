@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.meet_doctor.Interface.ApiService
-import com.example.meet_doctor.Model.CallbackResponse
 import com.example.meet_doctor.Model.PaymentResponse
 import com.example.meet_doctor.Model.TransactionResponse
 import com.example.meet_doctor.Utilitas.ApiClient
@@ -150,9 +149,6 @@ class PaymentActivity : AppCompatActivity() {
                         val paymentUrl = transactionResponse.payment_url
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(paymentUrl))
                         startActivity(intent)
-
-                        // Tunggu pengguna kembali dari Snap Midtrans
-                        waitForPaymentValidation()
                     } else {
                         Toast.makeText(this@PaymentActivity, "Failed to create payment", Toast.LENGTH_SHORT).show()
                     }
@@ -167,9 +163,12 @@ class PaymentActivity : AppCompatActivity() {
         })
     }
 
-    private fun waitForPaymentValidation() {
-        // Simulasikan validasi hasil pembayaran setelah pengguna kembali
-        // Timer sederhana atau polling untuk mengecek status pembayaran
+    override fun onResume() {
+        super.onResume()
+        validatePaymentStatus()
+    }
+
+    private fun validatePaymentStatus() {
         val token = TokenManager.getToken(this)
         if (token.isNullOrEmpty()) {
             Toast.makeText(this, "Token not found, please login again", Toast.LENGTH_SHORT).show()
@@ -178,15 +177,12 @@ class PaymentActivity : AppCompatActivity() {
 
         val apiService = ApiClient.getRetrofitWithToken(token).create(ApiService::class.java)
 
-        // Cek status pembayaran setelah Snap selesai
         apiService.getPaymentDetails(appointmentId).enqueue(object : Callback<PaymentResponse> {
             override fun onResponse(call: Call<PaymentResponse>, response: Response<PaymentResponse>) {
                 if (response.isSuccessful && response.body()?.appointment?.status == "1") {
-                    // Pembayaran berhasil
                     redirectToSuccessActivity()
                 } else {
-                    // Pembayaran masih pending atau gagal
-                    Toast.makeText(this@PaymentActivity, "Payment not yet completed", Toast.LENGTH_SHORT).show()
+                    tvStatus.text = "Waiting Payment"
                 }
             }
 
@@ -195,7 +191,6 @@ class PaymentActivity : AppCompatActivity() {
             }
         })
     }
-
 
     private fun redirectToSuccessActivity() {
         val intent = Intent(this, SuksesBookingActivity::class.java)
