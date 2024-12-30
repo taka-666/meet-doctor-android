@@ -1,6 +1,7 @@
 package com.example.meet_doctor.Interface
 
 import com.example.meet_doctor.Model.AppointmentRequest
+import com.example.meet_doctor.Model.AppointmentRes
 import com.example.meet_doctor.Model.AppointmentResponse
 import com.example.meet_doctor.Model.CallbackResponse
 import com.example.meet_doctor.Model.Doctor
@@ -18,11 +19,14 @@ import retrofit2.http.POST
 
 import com.example.meet_doctor.Model.RegisterRequest
 import com.example.meet_doctor.Model.RegisterResponse
+import com.example.meet_doctor.Model.TransactionRes
 import com.example.meet_doctor.Model.TransactionResponse
 import com.example.meet_doctor.Model.bookingResponse
 import retrofit2.Call
 import retrofit2.http.Field
+import retrofit2.http.Header
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface  ApiService {
@@ -37,34 +41,30 @@ interface  ApiService {
     @GET("home")
     fun getDoctor(): Call<DoctorResponse>
 
+    // Create Appointment
     @POST("appointment")
     fun createAppointment(
         @Body appointmentRequest: AppointmentRequest
     ): Call<AppointmentResponse>
-
-//    @GET("appointment")
-//    fun getAppointments(): Call<bookingResponse>
-
-    @GET("appointment/doctor/{id}")
-    fun getAppointmentDetails(@Path("id") id: Int): Call<AppointmentResponse>
-
-    @GET("transaction")
-    fun getTransactions(): Call<TransactionResponse>
-
+    // Get Payment Details
     @GET("payment/appointment/{id}")
     fun getPaymentDetails(@Path("id") id: Int): Call<PaymentResponse>
-
-    @POST("payment")
-    fun payNow(@Body request: PaymentRequest): Call<PaymentStoreResponse>
-
+    // Create Payment
     @POST("payment")
     fun createPayment(
         @Body appointmentId: Map<String, Int> // Mengirimkan appointment_id sebagai body
     ): Call<TransactionResponse>
 
-    @GET("payment/finish")
-    fun finishPayment(): Call<CallbackResponse>
+    @GET("appointment")
+    fun getAppointments(
+        @Header("Authorization") token: String
+    ): Call<AppointmentRes>
 
+    @GET("backsite/transaction")
+    fun getTransactionDetails(@Header("Authorization")token: String): Call<TransactionRes>
+
+    @GET("user")
+    fun getUser(): Call<User>
 
 }
 

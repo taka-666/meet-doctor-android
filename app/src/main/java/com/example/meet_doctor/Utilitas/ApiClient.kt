@@ -1,14 +1,13 @@
 package com.example.meet_doctor.Utilitas
 
-import okhttp3.Interceptor
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 
 object ApiClient {
-    private const val BASE_URL = "https://b319-2001-448a-4042-7f86-6c2e-7c93-df87-48f7.ngrok-free.app/api/"
+    private const val BASE_URL = "https://6bda-2001-448a-4040-911d-d008-7454-661c-ba63.ngrok-free.app/api/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

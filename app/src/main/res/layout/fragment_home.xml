@@ -27,13 +27,13 @@
                 android:layout_marginTop="15dp">
 
                 <TextView
-                    android:id="@+id/txtName"
+                    android:id="@+id/txtNameUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Halo"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.example.meet_doctor.AppointmentActivity
 import com.example.meet_doctor.Interface.ApiService
 import com.example.meet_doctor.Model.Doctor
 import com.example.meet_doctor.Model.DoctorResponse
+import com.example.meet_doctor.Model.User
 import com.example.meet_doctor.R
 import com.example.meet_doctor.Utilitas.ApiClient
 import com.example.meet_doctor.Utilitas.TokenManager
@@ -27,6 +29,7 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerDoctor: RecyclerView
     private lateinit var doctorList: ArrayList<Doctor>
     private lateinit var adapterDoctor: adapterDoctor
+    private lateinit var txtNameUser : TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -34,6 +37,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        txtNameUser = view.findViewById(R.id.txtNameUser)
+
 
         // Inisialisasi daftar dokter dan RecyclerView
         doctorList = ArrayList()
@@ -55,8 +61,37 @@ class HomeFragment : Fragment() {
 
         // Fetch data dokter
         fetchDoctors()
+        fetchUser()
 
         return view
+    }
+
+    private fun fetchUser() {
+        // Ambil token dari TokenManager
+        val token = TokenManager.getToken(requireContext())
+        if (token.isNullOrEmpty()) {
+            Toast.makeText(requireContext(), "Token not found, please login again", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Konfigurasikan API Service dengan token
+        val apiService = ApiClient.getRetrofitWithToken(token).create(ApiService::class.java)
+
+        // Panggil endpoint user
+        apiService.getUser().enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if (response.isSuccessful && response.body() != null) {
+                    val user = response.body()!!
+                    txtNameUser.text = "Hallo, ${user.name}"
+                } else {
+                    Toast.makeText(requireContext(), "Failed to fetch user details", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun fetchDoctors() {

@@ -39,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dr. Galih Pratama"
                 android:textSize="16sp"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cardiology"
+                android:fontFamily="@font/poppins_mediumitalic"
                 android:textSize="12sp"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -72,6 +74,7 @@
                 android:text="Appointment"
                 android:textSize="20sp"
                 android:layout_marginBottom="15dp"
+                android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -84,6 +87,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Kebutuhan Konsultasi"/>
 
                 <TextView
@@ -92,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="Sesak Jantung"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
             </RelativeLayout>
@@ -104,12 +109,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Dijadwalkan Pada"/>
 
                 <TextView
                     android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
                     android:layout_alignParentRight="true"
                     android:text="20 June 2024"
                     android:textColor="@color/black"
@@ -124,6 +131,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Waktu"/>
 
                 <TextView
@@ -131,6 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="10:00 PM"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
@@ -143,6 +152,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Status"/>
 
                 <TextView
@@ -150,6 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Waiting for Payment"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
@@ -174,6 +185,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Biaya Konsultasi"/>
 
                 <TextView
@@ -181,6 +193,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="$5,000"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
@@ -194,6 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Fee Doctor"/>
 
                 <TextView
@@ -202,6 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="$200"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
             </RelativeLayout>
@@ -214,6 +229,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Fee Hospital"/>
 
                 <TextView
@@ -222,6 +238,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="$10"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
             </RelativeLayout>
@@ -234,6 +251,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="VAT 20%"/>
 
                 <TextView
@@ -242,6 +260,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="$375"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
             </RelativeLayout>
@@ -253,6 +272,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
                     android:text="Grand Total"/>
 
                 <TextView
@@ -261,6 +281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="$6,500"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/hijau"
                     android:textStyle="bold"/>
             </RelativeLayout>

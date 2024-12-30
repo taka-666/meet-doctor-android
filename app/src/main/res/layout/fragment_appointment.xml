@@ -8,41 +8,12 @@
     android:padding="25dp"
     tools:context=".Fragment.AppointmentFragment">
 
-    <RelativeLayout
-        android:id="@+id/welcome"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photoProfile"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/profile_placeholder" />
-
-        <LinearLayout
-            android:layout_toRightOf="@+id/photoProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dr. Galih Pratama"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cardiology"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-    </RelativeLayout>
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_arrow_back" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAppointment"
